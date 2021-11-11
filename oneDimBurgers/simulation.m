@@ -1,7 +1,8 @@
-% We simulate the one-dimensional Burgers' equation 
-% using 80 cells and m = 3 derivatives
+% We compute and plot the numerical solution to the one-dimensional Burgers' equation 
+% using 40 cells and m = 3 derivatives. We oversample the grid using 4
+% points per cell
 clear, clc;
-for n = 80
+for n = 40
     xl = 0.0;                              % Left endpoint
     xr = 2*pi;                             % Right endpoint
     m = 3;                                 % Number of derivatives used 
@@ -36,8 +37,30 @@ for n = 80
             u(:,i) = RK4visc(u_int,v0*Vsp(i),dth,h,m);
         end
         t = t + dt;
+        
+        % Compute numerical solution on refined grid  
+        nr = 4; % Number of grid refinement has to be even
+        grid_refine = (-0.5:1/nr:0.5)';
+        Eval_Mat = zeros(nr,2*m+2);
+        Eval_Mat_Left = zeros(nr/2+1,2*m+2);
+        Eval_Mat_Right = zeros(nr/2,2*m+2);
+        for idx = 0:2*m+1
+            Eval_Mat(:,1+idx) = grid_refine(2:end).^(idx);
+            Eval_Mat_Left(:,1+idx) = grid_refine(nr/2+1:end).^(idx);
+            Eval_Mat_Right(:,1+idx) = grid_refine(2:nr/2+1).^(idx);
+        end
+        u_refined = [];
+        u_refined = Eval_Mat_Left*u(:,1);
+        for k = 2:n
+            u_refined = [u_refined; Eval_Mat*u(:,k)];
+        end
+        u_refined = [u_refined; Eval_Mat_Right*u(:,n+1)];
+        N = length(u_refined)-1;
+        h_refined = 2*pi/N;
+        x_refined = 0 + (0:N)*h_refined;
+        
         TITLE = sprintf('Burgers Equation time = %3.2f',t);
-        plot(x,u(1,:),'LineWidth',2);
+        plot(x_refined,u_refined,'LineWidth',2);
         title(TITLE)
         axis([0 2*pi -1.1 1.1])
         legend('Numerical Solution')
