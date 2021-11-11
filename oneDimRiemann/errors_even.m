@@ -1,6 +1,7 @@
 % We compute the L1, L2 and L infinity errors
 % along with the estimated rates of convergence 
 % when we have an even number of cells
+clear, clc;
 Ncells = [40 80 160];
 L1error = zeros(length(Ncells),1);
 L2error = zeros(length(Ncells),1);

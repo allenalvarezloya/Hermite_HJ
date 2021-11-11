@@ -1,3 +1,6 @@
+% This script computes and plots the numerical
+% Solution of a one-dimensional Riemann problem
+clear, clc;
 n = 80;
 xl = -1.0;
 xr = 1.0;
