@@ -1,5 +1,6 @@
 % This matlab script computes the errors in the L-1,L-2 and 
 % L-infinity norms while the solution in smooth
+clear, clc;
 Ncells = [20 40 80 160];
 count = 1;
 L1error = zeros(length(Ncells),1);

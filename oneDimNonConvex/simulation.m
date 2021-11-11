@@ -1,7 +1,7 @@
 % This matlab script computes and plots the 
 % numerical solution of a on dimensional 
 % Hamilton-Jacobi problem with a nonconvex Hamiltonian
-
+clear, clc;
 n = 80;
 xl = -1.0;
 xr = 1.0;
