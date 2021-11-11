@@ -1,5 +1,6 @@
 % This script runs a simulation of two-dimensional Burgers' equation
-n = 20;
+clear, clc
+N = 20;
 m = 3;              % Number of derivatives
 mx = m;             % Number of derivatives in x
 my = m;             % Number of derivatives in y

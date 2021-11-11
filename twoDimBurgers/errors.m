@@ -1,6 +1,7 @@
 % Run this script to compute the errors in the 
 % L1, L2 and Linf norms along with estimated rates 
 % of convergence 
+clear, clc
 Ncells = [20 40 80];
 L1error = zeros(length(Ncells),1);
 L2error = zeros(length(Ncells),1);
