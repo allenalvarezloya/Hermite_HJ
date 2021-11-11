@@ -1,5 +1,6 @@
 % We simulate the one-dimensional Burgers' equation 
 % using 80 cells and m = 3 derivatives
+clear, clc;
 for n = 80
     xl = 0.0;                              % Left endpoint
     xr = 2*pi;                             % Right endpoint
