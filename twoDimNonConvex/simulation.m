@@ -1,7 +1,7 @@
 % This script computes and plots the numerical solution 
 % for the two-dimensional HJ equation with a nonConvex 
 % Hamiltonian
-
+clear, clc;
 n = 20;
 m = 2;              % Number of derivatives
 mx = m;             % Number of derivatives in x
