@@ -1,5 +1,6 @@
 % This script computes and plots the numerical solution
 % of the Eikonal equation
+clear, clc;
 n = 80;
 xl = 0.0;
 xr = 2*pi;

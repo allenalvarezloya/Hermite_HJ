@@ -1,5 +1,6 @@
 % This script computes the errors in the L-1, L-2 and 
 % L-infinity norms along with the estimated rates of convergence
+clear, clc;
 Ncells = [20 40 80 160];
 L1error = zeros(length(Ncells),1);
 L2error = zeros(length(Ncells),1);
