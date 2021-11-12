@@ -19,7 +19,7 @@ Hmap = Hermite_map(m,0.0,1.0,0.5,0);
 t = 0.0;
 T = 1.0;
 while t < T
-    dt = 0.05*h;
+    dt = 0.1*h;
     if (t + dt > T)
         dt = T - t;
     end
