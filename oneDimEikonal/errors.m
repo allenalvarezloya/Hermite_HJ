@@ -1,7 +1,7 @@
 % This script computes the errors in the L-1, L-2 and 
 % L-infinity norms along with the estimated rates of convergence
 clear, clc;
-Ncells = [20 40 80 160];
+Ncells = [21 41 81 161];
 L1error = zeros(length(Ncells),1);
 L2error = zeros(length(Ncells),1);
 Linferror = zeros(length(Ncells),1);
@@ -45,7 +45,7 @@ for n = Ncells
     end
 
     % Refined solution 
-    nr = 4; % Number of grid refinement has to be even
+    nr = 8; % Number of grid refinement has to be even
     grid_refine = (-0.5:1/nr:0.5)';
     Eval_Mat = zeros(nr,2*m+2);
     Eval_Mat_Left = zeros(nr/2+1,2*m+2);
